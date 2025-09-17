@@ -1,0 +1,7 @@
+class Solution:
+    def uniquePaths(self, m: int, n: int) -> int:
+        dp = [[1 for _ in range(n)] for _ in range(m)]
+        for x in range(1, m):
+            for y in range(1, n):
+                dp[x][y] = dp[x - 1][y] + dp[x][y - 1]
+        return dp[-1][-1]
